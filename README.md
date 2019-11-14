@@ -4,9 +4,10 @@ Splits text files into groups of groups of files.  It was initially written to b
 # What it does
 
 * Takes the input file:
-title1
 
 ```
+title1
+
 1. a
 2. a2
 10. b
@@ -100,7 +101,7 @@ title2 1 of 4
 
 `grand title by Lucian Green title2 3 of 4.txt`
 ```
-`grand title
+grand title
 by Lucian Green
 title2 3 of 4
 
