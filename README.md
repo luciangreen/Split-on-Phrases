@@ -147,14 +147,14 @@ inputfile.txt - the file with the entitled list of paragraphs to split.
 
 # Append EOF
 
-* Append EOF (for Mac Terminal) appends EOF (the string, not the symbol) to each text file in the Data folder that appendeof.sh is not in, to the Out folder.
+* Append EOF (for Mac Terminal) appends EOF (the string, not the symbol) to each text file in the Data folder that appendeof.sh is in the same folder with, to the Out folder.
 
 * The Shell script is called in the form:
 `./appendeof.sh`
 
 # Text to AIFF
 
-* Text to AIFF (for Mac Terminal) converts text files in the Data folder that t2aiff.sh is not in to AIFF files, which can be converted to MP3s, which can be sound tracks added to YouTube.
+* Text to AIFF (for Mac Terminal) converts text files in the Data folder that t2aiff.sh is in the same folder with, to AIFF files, which can be converted to MP3s, which can be sound tracks added to YouTube.
 
 * The Shell script is called in the form:
 `./t2aiff.sh`
