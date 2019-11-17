@@ -6,7 +6,7 @@ use_module(library(pio)).
 split_on_phrases1(Title,PhrasesFile,InputFile) :-
 	get_phrases(PhrasesFile,Phrases),
 	split_on_phrases2(Phrases,InputFile,Text,Title),
-	write_files(Text).
+	write_files(Text),!.
 
 get_phrases(PhrasesFile,Phrases) :-
 	SepandPad="\n",
@@ -21,8 +21,8 @@ split_on_phrases2(Phrases2,InputFile,Text4,Title) :-
 	%%string_codes(Phrases1,Phrases2),
 	%%string_codes(Text2,Text1),
 	split_on_phrases3(Phrases2,Text2,[],Text3,Title),
-	term_to_atom([split_on_phrases3(Phrases2,Text2,[],Text3,Title)],AA),
-	writeln1(AA),
+	%%term_to_atom([split_on_phrases3(Phrases2,Text2,[],Text3,Title)],AA),
+	%%writeln1(AA),
 	%%findall(Text4a,(member(Text7,Text3),
 		findall([A1,B1],(member(Text8,Text3),Text8=[A,B],
 		string_codes(A,A1),string_codes(B,B1)),Text4).%%),Text4).
@@ -36,6 +36,7 @@ split_on_phrases3(Phrases1,Text1,Text2,Text3,Title) :-
 	(Phrases1=[Phrase2b],
 	Phrase2a="eof",Phrases3=[])),
 	length(Phrases1,Phrases1L),
+	writeln(Phrase2b),
 split_on_phrases3a(Phrase2b,Text1,Text2,Title,Phrase2a,E14,Phrases4,Phrases1L),
 (Phrase2a="eof"->(%%writeln([phrases3,Phrases3]),
 Phrases3=Phrases3a);
@@ -60,26 +61,30 @@ split_on_phrases3a(Phrase2b,Text1,Text2,Title,Phrase2a,E14,Phrases4,Phrases1L) :
 			%%String1,Phrase22,EofC,Title,1)
 			%%;
 			split_on_phrases41(Text1,E11,Text2,Text4,
-			String1,Phrase22,String11,Title,1,Phrase2aa)
+			String1,Phrase22,String11,Title,1,Phrase2aa),
+			writeln("11")
 		)->
 			((%Phrases1L=1->
 				%%split_on_phrases4(E11,E12,Text4,Text5,
 				%%String11,Phrase22,EofC,Title,2)
 				%%;
 				split_on_phrases41(E11,E12,Text4,Text5,
-				String11,Phrase22,String21,Title,2,Phrase2aa)
+				String11,Phrase22,String21,Title,2,Phrase2aa),
+				writeln("21")
 			)->
 				((%%Phrases1L=1->
 					%%split_on_phrases4(E12,E13,Text5,Text6,
 					%%String21,Phrase22,EofC,Title,3)
 					%%;
 					split_on_phrases41(E12,E13,Text5,Text6,
-					String21,Phrase22,String31,Title,3,Phrase2aa)
+					String21,Phrase22,String31,Title,3,Phrase2aa),
+					writeln("31")
 				)->
 				(
 					((Phrases1L=1->
-						(split_on_phrases4(E13,E14,Text6,Phrases4,
-						String31,Phrase22,EofC,Title,4)->
+						((split_on_phrases4(E13,E14,Text6,Phrases4,
+						String31,Phrase22,EofC,Title,4),
+						writeln("eof"))->
 							true;(writeln("Error: No eof."),abort)
 						)
 						;
@@ -87,8 +92,9 @@ split_on_phrases3a(Phrase2b,Text1,Text2,Title,Phrase2a,E14,Phrases4,Phrases1L) :
 						%%writeln(split_on_phrases4(E13,E14,Text6,Phrases4,
 						%%String31,Phrase22,Phrase2aa,Title,4)),
 						%%(
-						split_on_phrases42(E13,E14,Text6,Phrases4,
-						String31,Phrase22,_Empty,Title,4,Phrase2aa)%%->
+						(split_on_phrases42(E13,E14,Text6,Phrases4,
+						String31,Phrase22,_Empty,Title,4,Phrase2aa),
+						writeln("-"))%%->
 							%%true;(E13=E14,Text6=Phrases4)
 						)
 						)
@@ -96,33 +102,36 @@ split_on_phrases3a(Phrase2b,Text1,Text2,Title,Phrase2a,E14,Phrases4,Phrases1L) :
 				)
 				;
 				(Phrases1L=1->
-					split_on_phrases4(E12,E14,Text5,Phrases4,
-					String21,Phrase22,EofC,Title,3)
+					(split_on_phrases4(E12,E14,Text5,Phrases4,
+					String21,Phrase22,EofC,Title,3),
+					writeln("eof"))
 					;
 					(split_on_phrases41(E12,E14,Text5,Phrases4,
-					String21,Phrase22,String31,Title,3,Phrase2aa)%%->
+					String21,Phrase22,String31,Title,3,Phrase2aa),%%->
 						%%true;(E12=E14,Text5=Phrases4)
-						)
+						writeln("31"))
 				))
 			;
 			(Phrases1L=1->
-				split_on_phrases4(E11,E14,Text4,Phrases4,
-				String11,Phrase22,EofC,Title,2)
+				(split_on_phrases4(E11,E14,Text4,Phrases4,
+				String11,Phrase22,EofC,Title,2),
+				writeln("eof"))
 				;
 				(split_on_phrases41(E11,E14,Text4,Phrases4,
-				String11,Phrase22,String21,Title,2,Phrase2aa)%%->
+				String11,Phrase22,String21,Title,2,Phrase2aa),%%->
 						%%true;(E11=E14,Text4=Phrases4)
-						)
+						writeln("21"))
 			))
 		;
 		(Phrases1L=1->
-			split_on_phrases4(Text1,E14,Text2,Phrases4,
-			String1,Phrase22,EofC,Title,1)
+			(split_on_phrases4(Text1,E14,Text2,Phrases4,
+			String1,Phrase22,EofC,Title,1),
+			writeln("eof"))
 			;
 			(split_on_phrases41(Text1,E14,Text2,Phrases4,
-			String1,Phrase22,String11,Title,1,Phrase2aa)%%->
+			String1,Phrase22,String11,Title,1,Phrase2aa),%%->
 						%%true;(Text1=E14,Text2=Phrases4)
-						)
+						writeln("11"))
 		)
 	).
 	%%append_list([Text4,Text5,Text6,Text7],Phrases4).
