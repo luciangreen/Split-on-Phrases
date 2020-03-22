@@ -132,7 +132,7 @@ title2 4 of 4
 
 * Download this repository to your machine.
 In the SWI-Prolog environment, enter:
-`['listprolog'].`    
+`['../listprologinterpreter/listprolog'].`   
 
 * Load the Split on Phrases program by typing:
 `['split_on_phrases'].`
