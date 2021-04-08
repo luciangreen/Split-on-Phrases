@@ -1,5 +1,36 @@
 # Split-on-Phrases
-Splits text files into groups of files.  It was initially written to break m multiple chapters per file (with paragraph numbers up to about 42) into 15 minute-speakable files for Youtube.  It splits on every 10 paragraphs.
+Splits text files into groups of files.  It was initially written to break m multiple chapters per file (with paragraph numbers up to about 42) into 15 minute-speakable files for YouTube.  It splits on every 10 paragraphs.
+
+# Prerequisites
+
+* Please download and install SWI-Prolog for your machine at `https://www.swi-prolog.org/build/`.
+
+* You may need to install gawk using Homebrew.
+
+* Install <a href="https://github.com/soimort/translate-shell">Translation Shell</a> on Mac, etc.
+Change line in
+```
+culturaltranslationtool/ctt.pl
+concat_list(["../../../trans ",FromLang,":",ToLang," '",Input1,"'"],F),
+```
+to correct location of <a href="https://github.com/soimort/translate-shell">trans</a>.
+
+# 1. Install manually
+
+Download <a href="http://github.com/luciangreen/Split-on-Phrases/">this repository</a>, the <a href="https://github.com/luciangreen/listprologinterpreter">List Prolog Interpreter repository</a>, the <a href="https://github.com/luciangreen/Languages">Languages repository</a> and <a href="https://github.com/luciangreen/culturaltranslationtool">Cultural Translation Tool</a>.
+
+# 2. Or Install from List Prolog Package Manager (LPPM)
+
+* Download the <a href="https://github.com/luciangreen/List-Prolog-Package-Manager">LPPM Repository</a>:
+
+```
+git clone https://github.com/luciangreen/List-Prolog-Package-Manager.git
+cd List-Prolog-Package-Manager
+swipl
+['lppm'].
+lppm_install("luciangreen","Split-on-Phrases")
+halt
+```
 
 # What it does
 
@@ -124,25 +155,11 @@ title2 4 of 4
 42. f
 ```
 
+# Running
 
-# Installation from List Prolog Package Manager (LPPM)
-
-* Optionally, you can install from LPPM by installing <a href="https://www.swi-prolog.org/build/">SWI-Prolog</a> for your machine, downloading the <a href="https://github.com/luciangreen/List-Prolog-Package-Manager">LPPM Repository</a>,
-```
-git clone https://github.com/luciangreen/List-Prolog-Package-Manager.git
-cd List-Prolog-Package-Manager
-swipl
-```
-loading LPPM with `['lppm'].` then installing the package by running `lppm_install("luciangreen","Split-on-Phrases").`.
-
-# Installing
-
-* Please download and install <a href="https://www.swi-prolog.org/build/">SWI-Prolog</a> for your machine.
-
-* Load List Prolog by downloading the <a href="https://github.com/luciangreen/listprologinterpreter">repository from GitHub</a>.
-
-* Download this repository to your machine.
-In the SWI-Prolog environment, enter:
+* In Shell:
+`cd Split-on-Phrases`
+`swipl`
 `['../listprologinterpreter/listprolog'].`   
 
 * Load the Split on Phrases program by typing:
