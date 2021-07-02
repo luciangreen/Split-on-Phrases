@@ -28,7 +28,7 @@ git clone https://github.com/luciangreen/List-Prolog-Package-Manager.git
 cd List-Prolog-Package-Manager
 swipl
 ['lppm'].
-lppm_install("luciangreen","Split-on-Phrases")
+lppm_install("luciangreen","Split-on-Phrases").
 halt
 ```
 
