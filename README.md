@@ -10,7 +10,7 @@ Splits text files into groups of files.  It was initially written to break m mul
 * Install <a href="https://github.com/soimort/translate-shell">Translation Shell</a> on Mac, etc.
 Change line in
 ```
-culturaltranslationtool/ctt.pl
+culturaltranslationtool/ctt2.pl
 trans_location("../../../gawk/trans").
 ```
 to correct location of <a href="https://github.com/soimort/translate-shell">trans</a>.
