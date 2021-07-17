@@ -11,7 +11,7 @@ Splits text files into groups of files.  It was initially written to break m mul
 Change line in
 ```
 culturaltranslationtool/ctt.pl
-concat_list(["../../../trans ",FromLang,":",ToLang," '",Input1,"'"],F),
+trans_location("../../../gawk/trans").
 ```
 to correct location of <a href="https://github.com/soimort/translate-shell">trans</a>.
 
