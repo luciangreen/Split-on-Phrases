@@ -31,7 +31,8 @@ cd List-Prolog-Package-Manager
 swipl
 ['lppm'].
 lppm_install("luciangreen","Split-on-Phrases").
-halt
+../
+halt.
 ```
 
 # What it does
