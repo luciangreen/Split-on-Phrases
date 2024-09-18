@@ -1,5 +1,5 @@
 use_module(library(pio)).
-:- include('../listprologinterpreter/la_strings').
+:-include('../listprologinterpreter/la_strings.pl').
 
 %% split_on_phrases1("grand title","phrasesfile.txt","inputfile.txt").
 
